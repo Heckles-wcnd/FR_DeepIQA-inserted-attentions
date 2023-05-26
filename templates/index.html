@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FR_IQA System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class="text-center">Full Reference Images Quality Assessment</h1>
+    <form class="p-3 text-center" action="/" method="post" enctype="multipart/form-data">
+        <div style="float:left">Input Reference image</div>
+        <input class="form-control" type="file" name="r_imagefile" >
+        <div style="float:left">Input Distorted image</div>
+        <input class="form-control" type="file" name="d_imagefile">
+        <input class="btn btn-primary mt-3" type="submit" value="Predict Score">
+    </form>
+    {% if prediction %}
+        <p class="text-center">Predicted image quality score is {{prediction}}</p>
+    {% endif %}
+
+<!--    {% if r_imagefile %}-->
+<!--        <p class="text-center">Selected reference image: {{ r_image_path }}</p>-->
+<!--        <img class="img-fluid" src="{{ url_for('static', filename=r_imagefile.filename) }}" alt="Reference Image">-->
+<!--    {% endif %}-->
+
+<!--    {% if d_imagefile %}-->
+<!--        <p class="text-center">Selected distorted image: {{ d_image_path }}</p>-->
+<!--        <img class="img-fluid" src="{{ url_for('static', filename=d_imagefile.filename) }}" alt="Distorted Image">-->
+<!--    {% endif %}-->
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" name="" id="user-photo" />
+    <div id="show-picture"></div>
+    <script>
+      var getUserPhoto = document.getElementById("user-photo");
+      getUserPhoto.onchange = function () {
+        var file = this.files;
+        console.log(file);
+        var reader = new FileReader();
+        reader.readAsDataURL(file[0]);
+        reader.onload = function () {
+          var image = document.createElement("img");
+          image.width = "400";
+          image.src = reader.result;
+          var showPicture = document.getElementById("show-picture");
+          showPicture.append(image);
+        };
+      };
+    </script>
+  </body>
+</html>
